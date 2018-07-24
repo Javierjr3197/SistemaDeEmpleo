@@ -41,10 +41,10 @@ public class Principal extends JFrame {
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		JMenu mnTrabajador = new JMenu("Trabajador");
+		JMenu mnTrabajador = new JMenu("Trabajado");
 		menuBar.add(mnTrabajador);
 		
-		JMenuItem mntmRegistrar = new JMenuItem("Registra");
+		JMenuItem mntmRegistrar = new JMenuItem("Registrar");
 		mnTrabajador.add(mntmRegistrar);
 		
 		JMenuItem mntmListar = new JMenuItem("Listar");
