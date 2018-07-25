@@ -9,6 +9,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Principal extends JFrame {
 
@@ -35,6 +37,7 @@ public class Principal extends JFrame {
 	 * Create the frame.
 	 */
 	public Principal() {
+		setTitle("Gestor de empleos");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 662, 500);
 		
@@ -75,6 +78,13 @@ public class Principal extends JFrame {
 		mnVacantes.add(mntmAgregar_1);
 		
 		JMenuItem mntmListar_3 = new JMenuItem("Listar");
+		mntmListar_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ListarVacante lisVan = new ListarVacante();
+				lisVan.setModal(true);
+				lisVan.setVisible(true);
+			}
+		});
 		mnVacantes.add(mntmListar_3);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
