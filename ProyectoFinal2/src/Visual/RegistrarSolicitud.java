@@ -115,7 +115,7 @@ public class RegistrarSolicitud extends JDialog {
 			chckbxmntmDispuestoAMudarse.setBounds(152, 210, 151, 22);
 			panel.add(chckbxmntmDispuestoAMudarse);
 			
-			JCheckBoxMenuItem chckbxmntmActualmenteEstaTrabjando = new JCheckBoxMenuItem("Actualmente esta trabjando");
+			JCheckBoxMenuItem chckbxmntmActualmenteEstaTrabjando = new JCheckBoxMenuItem("Actualmente esta trabajando");
 			chckbxmntmActualmenteEstaTrabjando.setBounds(152, 237, 191, 22);
 			panel.add(chckbxmntmActualmenteEstaTrabjando);
 			
@@ -209,6 +209,12 @@ public class RegistrarSolicitud extends JDialog {
 			}
 			{
 				JButton cancelButton = new JButton("Salir");
+				cancelButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+					dispose();
+					
+					}
+				});
 				cancelButton.setActionCommand("Cancel");
 				buttonPane.add(cancelButton);
 			}
