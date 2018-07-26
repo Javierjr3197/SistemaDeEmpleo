@@ -45,6 +45,7 @@ public class RegistrarSolicitud extends JDialog {
 	 * Create the dialog.
 	 */
 	public RegistrarSolicitud() {
+		setTitle("Registar Solicitud");
 		setBounds(100, 100, 450, 528);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));

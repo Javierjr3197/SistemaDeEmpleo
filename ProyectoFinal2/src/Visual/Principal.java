@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+
+
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
@@ -54,21 +57,55 @@ public class Principal extends JFrame {
 		mnTrabajador.add(mntmListar);
 		
 		JMenu mnEmpresa = new JMenu("Empresa");
+		mnEmpresa.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		menuBar.add(mnEmpresa);
 		
 		JMenuItem mntmRegistrar_1 = new JMenuItem("Registrar");
+		mntmRegistrar_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+				RegistrarEmpresa regempresa = new RegistrarEmpresa();
+			 regempresa.setModal(true);
+				regempresa.setVisible(true);
+			}
+		});
 		mnEmpresa.add(mntmRegistrar_1);
 		
 		JMenuItem mntmListar_1 = new JMenuItem("Listar");
+		mntmListar_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+				ListarEmpresa listarempresa = new ListarEmpresa();
+				 listarempresa.setModal(true);
+					listarempresa.setVisible(true);
+			}
+		});
 		mnEmpresa.add(mntmListar_1);
 		
 		JMenu mnSolicitudes = new JMenu("Solicitudes");
 		menuBar.add(mnSolicitudes);
 		
 		JMenuItem mntmAgregar = new JMenuItem("Agregar");
+		mntmAgregar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				RegistrarSolicitud regsolicitud= new RegistrarSolicitud();
+				 regsolicitud.setModal(true);
+					regsolicitud.setVisible(true);
+			}
+		});
 		mnSolicitudes.add(mntmAgregar);
 		
 		JMenuItem mntmListar_2 = new JMenuItem("Listar");
+		mntmListar_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ListarSolicitud listarsolicitud = new ListarSolicitud();
+				 listarsolicitud.setModal(true);
+					listarsolicitud.setVisible(true);
+			}
+		});
 		mnSolicitudes.add(mntmListar_2);
 		
 		JMenu mnVacantes = new JMenu("Vacantes");
