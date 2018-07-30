@@ -1,23 +1,24 @@
 package Logical;
 
+
 import java.io.Serializable;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Tecnico extends AgregarSolicitudes implements Serializable{
+public class Universitario extends AgregarSolicitudes implements Serializable{
 
-	private static final long serialVersionUID = -3609684295683397705L;
+	private static final long serialVersionUID = -7341882960328332552L;
 	private String institucion; 
-	private String tecnico; //Cual tecnico se realizo
+	private String carrera;
 	
-	public Tecnico(int salirioSolicitado, boolean dispMudarse, boolean dispViajar, String tipoJornada,
-			String areaInteres, LocalDate fecha, String institucion, String tecnico) {
+	public Universitario(int salirioSolicitado, boolean dispMudarse, boolean dispViajar, String tipoJornada,
+			String areaInteres, LocalDate fecha, String institucion, String carrera) {
 		super(salirioSolicitado, dispMudarse, dispViajar, tipoJornada, areaInteres, fecha);
 		this.institucion = institucion;
-		this.tecnico = tecnico;
+		this.carrera = carrera;
 	}
-
+	
 	public String getInstitucion() {
 		return institucion;
 	}
@@ -26,17 +27,17 @@ public class Tecnico extends AgregarSolicitudes implements Serializable{
 		this.institucion = institucion;
 	}
 
-	public String getTecnico() {
-		return tecnico;
+	public String getCarrera() {
+		return carrera;
 	}
 
-	public void setTecnico(String tecnico) {
-		this.tecnico = tecnico;
+	public void setCarrera(String carrera) {
+		this.carrera = carrera;
 	}
 
 	@Override
 	public String toString() {
-		return "Tecnico [institucion=" + institucion + ", tecnico=" + tecnico + ", getSalirioSolicitado()="
+		return "Universitario [institucion=" + institucion + ", carrera=" + carrera + ", getSalirioSolicitado()="
 				+ getSalirioSolicitado() + ", isDispMudarse()=" + isDispMudarse() + ", isDispViajar()=" + isDispViajar()
 				+ ", getTipoJornada()=" + getTipoJornada() + ", getAreaInteres()=" + getAreaInteres() + ", getFecha()="
 				+ getFecha() + ", getPorciento()=" + getPorciento() + ", getClass()=" + getClass() + ", hashCode()="

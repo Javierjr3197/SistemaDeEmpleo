@@ -1,108 +1,181 @@
 package Logical;
 
-public class Solicitudes {//esto se crea despues que el usauario inicia sision, entonces 
-	//se crearia una clase "Registro" que tendria una lista de la clase ""Persona""
+import java.io.Serializable;
+import java.util.ArrayList;
 
-private String miPerfil;//obrero, tecnico o professional
-private int miDisponibilidad; //medio tiempo, tiempo completo, freelancer 	
-private float sueldoQueAspiro;
-private boolean conLicencia;
-private String[] idiomas;//los idiomas en la ventana de registrar solicitudes aparecen dinamicamente dependiendo los idiomas registrados en registrar trabajador
-private boolean dispuestoAMudarme;
-private String[] listaMisHAbilidades;
-private boolean empleado;	//crear otro campo boolean para ver si esta contratado\
-private boolean contratado;
+public abstract class Solicitudes implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -9075807511658271835L;
+	protected boolean Satisfecho;
+	protected String sexo;
+	protected String estadoCivil; //Soltero, Casado, Viudo, Divorsiado, Union Libre
+	protected String cuidad;
+	protected String pais;  //Direccion
+	protected int salirioSolicitado;//Menor a X 
+	protected boolean dispMudarse;
+	protected boolean dispViajar;
+	protected String tipoJornada; //Tiempo Completo, medio Tiempo 
+	protected ArrayList<String> idioma;
+	protected String areaInteres; //Area de la empresa, completar esto automaticamente
+	protected boolean licencia; //Posee licencia de conducir
+	protected String areadeExp; //Area de experiencia requerida
+	protected int anosExp; //En el area suministrada 
+	protected float porcientoAceptable;
+	protected int plaza; //Numero de trabajadores que se necesitan
+	protected String id;
+	protected ArrayList<Solicitantes> miSolicitantes;
+	
+	public Solicitudes(String sexo, String estadoCivil, String cuidad, String pais,
+			int salirioSolicitado, boolean dispMudarse, boolean dispViajar, String tipoJornada,
+			ArrayList<String> idioma, String areaInteres, boolean licencia, String areadeExp, int anosExp,
+			float porcientoAceptable, int plaza) {
+		super();
+		this.Satisfecho = false;
+		this.sexo = sexo;
+		this.estadoCivil = estadoCivil;
+		this.cuidad = cuidad;
+		this.pais = pais;
+		this.salirioSolicitado = salirioSolicitado;
+		this.dispMudarse = dispMudarse;
+		this.dispViajar = dispViajar;
+		this.tipoJornada = tipoJornada;
+		this.idioma = idioma;
+		this.areaInteres = areaInteres;
+		this.licencia = licencia;
+		this.areadeExp = areadeExp;
+		this.anosExp = anosExp;
+		this.porcientoAceptable = porcientoAceptable;
+		this.plaza = plaza;
+		this.miSolicitantes = new ArrayList<>();
+		this.id = "";
+	}
+	
+	public void eliminarSolicitud(Solicitantes s){
+		getMiSolicitantes().remove(s);
+	}
+	public String getSexo() {
+		return sexo;
+	}
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
+	public String getEstadoCivil() {
+		return estadoCivil;
+	}
+	public void setEstadoCivil(String estadoCivil) {
+		this.estadoCivil = estadoCivil;
+	}
+	public String getCuidad() {
+		return cuidad;
+	}
+	public void setCuidad(String cuidad) {
+		this.cuidad = cuidad;
+	}
+	public String getPais() {
+		return pais;
+	}
+	public void setPais(String pais) {
+		this.pais = pais;
+	}
+	public int getSalirioSolicitado() {
+		return salirioSolicitado;
+	}
+	public void setSalirioSolicitado(int salirioSolicitado) {
+		this.salirioSolicitado = salirioSolicitado;
+	}
+	public boolean isDispMudarse() {
+		return dispMudarse;
+	}
+	public void setDispMudarse(boolean dispMudarse) {
+		this.dispMudarse = dispMudarse;
+	}
+	public boolean isDispViajar() {
+		return dispViajar;
+	}
+	public void setDispViajar(boolean dispViajar) {
+		this.dispViajar = dispViajar;
+	}
+	public String getTipoJornada() {
+		return tipoJornada;
+	}
+	public void setTipoJornada(String tipoJornada) {
+		this.tipoJornada = tipoJornada;
+	}
+	public ArrayList<String> getIdioma() {
+		return idioma;
+	}
+	public void setIdioma(ArrayList<String> idioma) {
+		this.idioma = idioma;
+	}
+	public String getAreaInteres() {
+		return areaInteres;
+	}
+	public void setAreaInteres(String areaInteres) {
+		this.areaInteres = areaInteres;
+	}
+	public boolean isLicencia() {
+		return licencia;
+	}
+	public void setLicencia(boolean licencia) {
+		this.licencia = licencia;
+	}
+	public String getAreadeExp() {
+		return areadeExp;
+	}
+	public void setAreadeExp(String area) {
+		this.areadeExp = area;
+	}
+	public int getAnosExp() {
+		return anosExp;
+	}
+	public void setAnosExp(int anosExp) {
+		this.anosExp = anosExp;
+	}
+	public int getPlaza() {
+		return plaza;
+	}
+	public void setPlaza(int plaza) {
+		this.plaza = plaza;
+	}
 
-public Solicitudes(String miPerfil, int miDisponibilidad, float sueldoQueAspiro, boolean conLicencia, String[] idiomas,
-		boolean dispuestoAMudarme, String[] listaMisHAbilidades, boolean empleado, boolean contratado) {
-	super();
-	this.miPerfil = miPerfil;
-	this.miDisponibilidad = miDisponibilidad;
-	this.sueldoQueAspiro = sueldoQueAspiro;
-	this.conLicencia = conLicencia;
-	this.idiomas = idiomas;
-	this.dispuestoAMudarme = dispuestoAMudarme;
-	this.listaMisHAbilidades = listaMisHAbilidades;
-	this.empleado = empleado;
-	this.contratado = contratado;
-}
+	
 
-public String getMiPerfil() {
-	return miPerfil;
-}
+	public float getPorcientoAceptable() {
+		return porcientoAceptable;
+	}
 
-public void setMiPerfil(String miPerfil) {
-	this.miPerfil = miPerfil;
-}
+	public void setPorcientoAceptable(float porcientoAceptable) {
+		this.porcientoAceptable = porcientoAceptable;
+	}
 
-public int getMiDisponibilidad() {
-	return miDisponibilidad;
-}
+	public ArrayList<Solicitantes> getMiSolicitantes() {
+		return miSolicitantes;
+	}
 
-public void setMiDisponibilidad(int miDisponibilidad) {
-	this.miDisponibilidad = miDisponibilidad;
-}
-
-public float getSueldoQueAspiro() {
-	return sueldoQueAspiro;
-}
-
-public void setSueldoQueAspiro(float sueldoQueAspiro) {
-	this.sueldoQueAspiro = sueldoQueAspiro;
-}
-
-public boolean isConLicencia() {
-	return conLicencia;
-}
-
-public void setConLicencia(boolean conLicencia) {
-	this.conLicencia = conLicencia;
-}
-
-public String[] getIdiomas() {
-	return idiomas;
-}
-
-public void setIdiomas(String[] idiomas) {
-	this.idiomas = idiomas;
-}
-
-public boolean isDispuestoAMudarme() {
-	return dispuestoAMudarme;
-}
-
-public void setDispuestoAMudarme(boolean dispuestoAMudarme) {
-	this.dispuestoAMudarme = dispuestoAMudarme;
-}
-
-public String[] getListaMisHAbilidades() {
-	return listaMisHAbilidades;
-}
-
-public void setListaMisHAbilidades(String[] listaMisHAbilidades) {
-	this.listaMisHAbilidades = listaMisHAbilidades;
-}
-
-public boolean isEmpleado() {
-	return empleado;
-}
-
-public void setEmpleado(boolean empleado) {
-	this.empleado = empleado;
-}
-
-public boolean isContratado() {
-	return contratado;
-}
-
-public void setContratado(boolean contratado) {
-	this.contratado = contratado;
-}
+	public void setMiSolicitantes(ArrayList<Solicitantes> miSolicitantes) {
+		this.miSolicitantes = miSolicitantes;
+	}
 
 
+	public boolean isSatisfecho() {
+		return Satisfecho;
+	}
 
 
+	public void setSatisfecho(boolean satisfecho) {
+		Satisfecho = satisfecho;
+	}
 
 
+	public String getId() {
+		return id;
+	}
 
+
+	public void setId(String id) {
+		this.id = id;
+	}
 }

@@ -1,22 +1,38 @@
 package Logical;
 
+import java.io.Serializable;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Obrero extends Trabajador {
-	private String[] habilidades;
+public class Obrero extends AgregarSolicitudes implements Serializable{
 
-	public String[] getHabilidades() {
-		return habilidades;
+	private static final long serialVersionUID = 2802464278152137032L;
+	private ArrayList<String> listaHabilidades;
+	
+
+	public Obrero(int salirioSolicitado, boolean dispMudarse, boolean dispViajar, String tipoJornada,
+			String areaInteres, LocalDate fecha, ArrayList<String> listaHabilidades) {
+		super(salirioSolicitado, dispMudarse, dispViajar, tipoJornada, areaInteres, fecha);
+		this.listaHabilidades = listaHabilidades;
+	}
+	
+	public ArrayList<String> getListaHabilidades() {
+		return listaHabilidades;
 	}
 
-	public void setHabilidades(String[] habilidades) {
-		this.habilidades = habilidades;
+	public void setListaHabilidades(ArrayList<String> listaHabilidades) {
+		this.listaHabilidades = listaHabilidades;
 	}
 
-	public Obrero(String nombre, String apellido, String direccion, String telefono, String cedula, int edad,
-			String genero, ArrayList<Solicitudes> misSolicitudes, String[] habilidades) {
-		super(nombre, apellido, direccion, telefono, cedula, edad, genero, misSolicitudes);
-		this.habilidades = habilidades;
+	@Override
+	public String toString() {
+		return "Obrero [listaHabilidades=" + listaHabilidades + ", getSalirioSolicitado()=" + getSalirioSolicitado()
+				+ ", isDispMudarse()=" + isDispMudarse() + ", isDispViajar()=" + isDispViajar() + ", getTipoJornada()="
+				+ getTipoJornada() + ", getAreaInteres()=" + getAreaInteres() + ", getFecha()=" + getFecha()
+				+ ", getPorciento()=" + getPorciento() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
 	}
 
+	
 }
